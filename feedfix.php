@@ -14,8 +14,11 @@ class PlgSystemFeedFix extends \Joomla\CMS\Plugin\CMSPlugin
 {
     public function onBeforeRender()
     {
-        $input = new JInput();
-        
+        /***
+         * 
+         * @var \Joomla\Input\Input $input
+         */
+        $input = new \Joomla\Input\Input();
         if ($input->get('format','') == 'feed')
         {
             /**
@@ -24,7 +27,6 @@ class PlgSystemFeedFix extends \Joomla\CMS\Plugin\CMSPlugin
              */
             
             $doc = \Joomla\CMS\Factory::getDocument();
-            
             if ($this->params->get('authorempty') == '1')
             {
                 /**
